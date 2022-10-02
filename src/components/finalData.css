@@ -1,0 +1,15 @@
+.name-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid;
+    padding: 5px;
+}
+
+.profile-img {
+    height: 100px;
+    width: 100px;
+    background-size: contain;
+}
+
