@@ -1,23 +1,63 @@
+
+
 .container {
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 1px solid;
+    height: 30vh;
+    width: 100%;
+    padding: 1%;
+}
+
+
+.section-title {
+    justify-self: flex-start;
+    margin-bottom: 2%;
+
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 30%;
 }
 
 .avatar {
     height: 100px;
     width: 100px;
-    padding: 2%;
     opacity: 0.5;
 }
+
+.names, .contact{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    margin-top: 2%;
+}
+
+.names > label, .contact > label {
+    width: 20%;
+}
+
+.names > .inputField, .contact > .inputField {
+    width: 25%;
+}
+
+
 
 .inputField {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid black;
-    margin-top: 3%;
     color: white;
     width: 40%;
     transition: all ease-in-out 0.2s;
@@ -38,12 +78,12 @@ textarea:focus, input:focus{
 }
 
 .submit-btn {
-    margin: 5%;
     width: 15%;
     height: 30px;
     background-color: rgb(77, 77, 77);
     color: white;
     border: none;
+    justify-self: flex-end;
 }
 
 .submit-btn:hover {

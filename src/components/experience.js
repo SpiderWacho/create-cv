@@ -9,8 +9,9 @@ class Experiencie extends Component {
         experiencie: {
             start: '',
             end: '',
-            title: '',
             company: '',
+            title: '',
+            description: '',
           },
     }
 }
@@ -28,24 +29,27 @@ handleChange(e)  {
     render(){
         return ( 
             <div className="container">
-                <h2>Experiencie</h2>
-                <label>
-                Start: 
-                <input onChange={(e) => this.handleChange(e)} type="date" name="start"></input>
-                </label>
-                <label>
-                Finish: 
-                <input onChange={(e) => this.handleChange(e)} type="date" name='end'></input>
-                </label>
-                <label>
-                Description of experience
-                <input onChange={(e) => this.handleChange(e)} type="textarea" placeholder="Describe your experiencie" name='title'></input>    
-                </label>
-                <label>
-                Name of company
-                <input onChange={(e) => this.handleChange(e)} type="textarea" placeholder="Name of company" name='company'></input>    
-                </label>
-                <button onClick={() => this.props.addExperiencie(this.state, 'experienceChilds')}>Add experience</button>
+                <h2 className="section-title">Experience</h2>
+                <div className="dates">
+                    <label className="input-label" htmlFor="start">Start:</label>
+                    <input className="input-field" onChange={(e) => this.handleChange(e)} type="date" name="start"></input>
+                    <label className="input-label" htmlFor="end">End:</label>
+                    <input className="input-field" onChange={(e) => this.handleChange(e)} type="date" name='end'></input>
+                </div>
+                <div className="input-container">
+                <label className="input-label" htmlFor="company">Name of company:</label>
+                <input className="input-field" onChange={(e) => this.handleChange(e)} type="textarea" placeholder="Name of company" name='company'></input>    
+                </div>
+                <div className="input-container">
+                <label htmlFor="title">Title of position:</label>
+                <input className="input-field" onChange={(e) => this.handleChange(e)} type="textarea" placeholder="Title of position" name='title'></input>    
+                </div>
+                <div className="input-container">
+                <label className="input-label" htmlFor="description">Description of experience:</label>
+                <input className="input-field" onChange={(e) => this.handleChange(e)} type="textarea" placeholder="Description of the position" name='description'></input>    
+                </div>
+
+                <button className="submit-btn" onClick={() => this.props.addExperiencie(this.state, 'experienceChilds')}>Add experience</button>
             </div>
         )
     }

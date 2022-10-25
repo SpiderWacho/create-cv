@@ -1,7 +1,69 @@
-.container {
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Oswald&display=swap');
+
+.dates {
     display: flex;
-    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
     justify-content: center;
     align-items: center;
-    border: 1px solid;
+}
+
+.dates > label {
+    width: 20%;
+}
+
+.dates > .input-field {
+    width: 25%;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.input-field {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    color: white;
+    transition: all ease-in-out 0.2s;
+    text-align: center;
+    width: 60%;
+    transition: all 0.2s ease-in-out;
+}
+
+label {
+    width: 35%;
+    font-size: 1.2em;
+    font-family: 'Oswald', sans-serif;
+}
+
+.input-field:focus {
+    transform: scaleX(1.1);
+}
+
+::placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.submit-btn {
+    margin: 5%;
+    width: 15%;
+    height: 30px;
+    background-color: rgb(77, 77, 77);
+    color: white;
+    border: none;
+}
+
+.submit-btn:hover {
+    background-color: rgb(83, 83, 83);
 }

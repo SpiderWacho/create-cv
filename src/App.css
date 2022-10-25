@@ -1,34 +1,50 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
+
+
 
 .header {
   height: 10vh;
   width: 100vw;
-  background-color: black;
+  background-color: rgb(48, 48, 48);
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
+.download {
+  position: relative;
+  left: 85%;
+  justify-self: flex-end;
+  height: 50%;
+  width: 100px;
+}
+
 h1 {
   color: white;
   padding-left: 2%;
+  font-family: 'Archivo Black', sans-serif;
 }
 
 .content {
+  width: 100vw;
   display: flex;
   flex-wrap: nowrap;
 }
 
 .modifiable-section {
   width: 45vw;
-  height: 85vh;
+  height: 90vh;
   background-color: grey;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .final-section {
   width: 55vw;
-  height: 85vh;
+  height: 90vh;
   background-color: whitesmoke
 }
