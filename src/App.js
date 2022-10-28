@@ -1,5 +1,5 @@
 
-import {Component, PropTypes} from 'react';
+import {useState} from 'react';
 
 import './App.css';
 import Title from './components/title.js'
@@ -10,13 +10,12 @@ import avatar from './images/avatarProfile.png'
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
 
 
+  const [printable, setPrintable] = useState(false);
 
-  this.state = {
+  const [allData, setAllData] = useState({
     experienceChilds: [],
     educationChilds: [],
     title: {
@@ -27,58 +26,58 @@ class App extends Component {
       email: 'example@mail.com',
       direction: 'Direction',
     },
-    education: {
-      start: 'Start Date',
-      end: 'End Date',
-      title: 'Title obtained',
-      institution: 'Name of Institution',
-    },
-  }
-
-  this.handleInfo = this.handleInfo.bind(this);
-  this.addExperiencie = this.addExperiencie.bind(this);
-  this.removeExperiencie = this.removeExperiencie.bind(this);
-
-}
+  });
 
 
-handleInfo(formData, toChange){
-  this.setState(prevState => ({ ...prevState,
-      [toChange] : {...formData}
+
+const handleInfo = (formData, toChange) => {
+  console.log(allData[toChange])
+  setAllData(prevstate => ({...prevstate,
+  [toChange] : formData,
   }))
-}
+};  
 
 
-addExperiencie(child, toChange) {
-  let oldData = this.state[toChange]
-  child.id = oldData.length + 1
-  this.setState(prevState => (
-    {...prevState,
-      [toChange]: [...oldData, child]
-    }
-  ));
+const addExperience = (child, toChange) => {
+  let oldData = allData[toChange]
+  child.id = oldData.length + 1 
+  setAllData(prevState => ({...prevState,
+    [toChange] : [...oldData ,child]  
+}));
   let inputs = document.querySelectorAll('.input-field');
   inputs.forEach(input => {
     input.value = ''
   })
 }
 
-removeExperiencie(index, toChange) {
-  let oldData = this.state[toChange];
-  console.log(index)
+const removeExperience = (index, toChange) => {
+  let oldData = allData[toChange];
   let firstCopy = oldData.slice(0, index);
   let secondCopy = oldData.slice(index);
   let newData = firstCopy.concat(secondCopy);
-  console.log(secondCopy)
-  this.setState(prevState => (
-    {...prevState,
-    [toChange]: [...newData]}
-  ))
+  console.log(newData)
+  setAllData(prevState => ({...prevState,
+    [toChange] : newData
+    }))
 }
 
-printDocument() {
+const printDocument = () => {
+  setPrintable(true)
   const input = document.getElementById('final-section');
-  html2canvas(input)
+  html2canvas(input, {
+    height: 3508,
+    width: 2480,
+    scale: 1,
+    onclone: (cloned) => {
+      let toPrint = cloned.querySelector("#final-section");
+      toPrint.style.height = '100vh';
+      toPrint.style.width = '35vw'
+      toPrint.style.position = 'absolute';
+      toPrint.style.top = 0;
+      toPrint.style.left = 0;    
+      toPrint.style.fontSize = 'small'  
+    }
+  })
     .then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF();
@@ -89,26 +88,25 @@ printDocument() {
   ;
 }
 
-render() {
-    return (
+return (
       <div className="App">
         <div className="header">
           <h1>Cv Creator</h1>
-          <button className="download" onClick={this.printDocument}>Download</button>
+          <button className="download" onClick={printDocument}>Download</button>
         </div>
         <div className="content">
         <div className="modifiable-section">
-          <Title handleInfo={this.handleInfo}/>
-          <Experiencie handleInfo={this.handleInfo} addExperiencie={this.addExperiencie}/>
-          <Education handleInfo={this.handleInfo} addEducation={this.addExperiencie}/>
+          <Title handleInfo={handleInfo}/>
+          <Experiencie handleInfo={handleInfo} addExperiencie={addExperience}/>
+          <Education handleInfo={handleInfo} addEducation={addExperience}/>
           </div>
           <div id="final-section">
-            <FinalData data={this.state} removeExperiencie={this.removeExperiencie}/>
+            <FinalData data={allData} printable={printable} removeExperiencie={removeExperience}/>
           </div>
           </div>
       </div>
     );
-  }
 }
+
 
 export default App;

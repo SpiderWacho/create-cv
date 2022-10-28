@@ -11,6 +11,7 @@ h2 {
   size: A4;
   width: 60%;
 }
+
 .final-container {
   size: A4;
   width: 100%;
@@ -27,6 +28,22 @@ h2 {
     grid-area: info;
     background-color: rgb(20, 20, 20);
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: space-evenly;
+    flex-wrap: wrap;
+}
+
+.contact-container {
+  align-self: center;
+}
+
+.contact {
+  color: white;
+}
+
+.description {
+  color: white;
 }
 
 .profile-img {

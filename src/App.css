@@ -15,11 +15,10 @@
 }
 
 .download {
-  position: relative;
-  left: 85%;
   justify-self: flex-end;
   height: 50%;
   width: 100px;
+  margin-left: 80%;
 }
 
 h1 {

@@ -6,7 +6,8 @@ class Experiencie extends Component {
         super(props);
     
     this.state = {
-        experiencie: {
+        experience: {
+            id: '',
             start: '',
             end: '',
             company: '',

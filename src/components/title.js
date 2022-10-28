@@ -36,7 +36,7 @@ class Title extends Component {
 
     render(){
         return ( 
-            <div className="container">
+            <div className='container'>
                 <h2 className="setion-title">Personal Info</h2>
                 <div className="profile-section">
                 <input onChange={(e) => this.handleFile(e)} type="file" id="image-input" accept="image/jpeg, image/png, image/jpg" name='avatar'></input>
