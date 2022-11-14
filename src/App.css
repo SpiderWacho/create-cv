@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Oswald&family=Quicksand:wght@500&family=Sono:wght@200;400&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
@@ -5,20 +8,39 @@
 
 
 
+
 .header {
-  height: 10vh;
+  height: 4vh;
   width: 100vw;
   background-color: rgb(48, 48, 48);
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+
 }
 
-.download {
-  justify-self: flex-end;
+.download-container {
+  padding-right: 2%;
   height: 50%;
-  width: 100px;
-  margin-left: 80%;
+}
+
+
+.download {
+  font-family: 'Oswald', sans-serif;
+  background-color: rgb(6, 133, 6);
+  border: none;
+  color: rgb(238, 238, 238);
+  font-weight: bold;
+  justify-self: flex-end;
+  height: 100%;
+  width: 150px;
+  font-size: 1.2em;
+}
+
+.download:hover {
+  cursor: pointer;
+  background-color: rgb(184, 184, 184);
+
 }
 
 h1 {
@@ -30,12 +52,12 @@ h1 {
 .content {
   width: 100vw;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .modifiable-section {
-  width: 45vw;
-  height: 90vh;
+  width: 100vw;
+  height: 96vh;  
   background-color: grey;
   display: flex;
   flex-wrap: wrap;
@@ -43,7 +65,48 @@ h1 {
 }
 
 .final-section {
-  width: 55vw;
-  height: 90vh;
+  width: 100vw;
+  height: 100vh;
   background-color: whitesmoke
+}
+
+@media print {
+  .final-section {
+      size: A4;
+      margin: 0;
+      width: 210mm;
+      height: 297mm;
+  }
+}
+
+
+@media only screen and (min-width : 992px) {
+
+ 
+  .header {
+    height: 10vh;
+  }
+
+  .content {
+    flex-wrap: nowrap;
+    height: 90vh;
+  }
+
+
+
+  .download {
+    width: 120px;
+ 
+  }
+
+
+  .modifiable-section {
+    width: 45vw;
+    height: 90vh;
+  }
+
+  .final-section {
+    width: 55vw;
+    height: 90vh;
+  }
 }
