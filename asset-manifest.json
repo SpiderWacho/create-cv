@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/SpiderWacho/create-cv/static/css/main.d82c21eb.css",
+    "main.js": "/SpiderWacho/create-cv/static/js/main.0a9f3163.js",
+    "static/js/703.5e447590.chunk.js": "/SpiderWacho/create-cv/static/js/703.5e447590.chunk.js",
+    "static/js/573.8e8fa9df.chunk.js": "/SpiderWacho/create-cv/static/js/573.8e8fa9df.chunk.js",
+    "static/media/avatarProfile.png": "/SpiderWacho/create-cv/static/media/avatarProfile.6e4c0f78ee599bce16a7.png",
+    "index.html": "/SpiderWacho/create-cv/index.html",
+    "main.d82c21eb.css.map": "/SpiderWacho/create-cv/static/css/main.d82c21eb.css.map",
+    "main.0a9f3163.js.map": "/SpiderWacho/create-cv/static/js/main.0a9f3163.js.map",
+    "703.5e447590.chunk.js.map": "/SpiderWacho/create-cv/static/js/703.5e447590.chunk.js.map",
+    "573.8e8fa9df.chunk.js.map": "/SpiderWacho/create-cv/static/js/573.8e8fa9df.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d82c21eb.css",
+    "static/js/main.0a9f3163.js"
+  ]
+}
