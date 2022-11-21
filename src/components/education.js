@@ -1,25 +1,25 @@
-import { Component, useState } from "react";
+import {  useState } from "react";
 import './education.css';
 
 const Education = (props) => {
 
         
-        const [data, setData] = useState({
-            education: {
+        const [data, setData] = useState(
+             {
+                id: '',
                 start: '',
                 end: '',
                 title: '',
                 institution: '',
+                
             },
-        })
+        )
 
         const handleChange = (e) =>  {
             const name = e.target.name
             setData(prevState => ({
-                education: {
-                    ...prevState.education,
-                    [name] : e.target.value
-                }
+                   ...prevState,
+                [name] : e.target.value
             }
             ))             
         }
@@ -42,7 +42,9 @@ const Education = (props) => {
             <label className="input-label" htmlFor="institution">Institution:</label>
             <input className="input-field" onChange={(e) => handleChange(e)} type="textarea" placeholder="Institution" name="institution"></input>     
             </div>
+            <span className="button-container">
             <button className="submit-btn" onClick={() => props.addEducation(data, "educationChilds")}>Add Data</button> 
+            </span>
         </div>
     )
 }

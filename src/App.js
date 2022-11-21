@@ -1,19 +1,16 @@
 
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 
 import './App.css';
 import Title from './components/title.js'
 import Experiencie from './components/experience.js'
 import Education from './components/education.js'
 import FinalData from "./components/finalData";
-import avatar from './images/avatarProfile.png'
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import avatar from './images/avatarProfile.png';
+import { useReactToPrint } from 'react-to-print';
+
 
 const App = () => {
-
-
-  const [printable, setPrintable] = useState(false);
 
   const [allData, setAllData] = useState({
     experienceChilds: [],
@@ -26,20 +23,36 @@ const App = () => {
       email: 'example@mail.com',
       direction: 'Direction',
     },
+    printable: 'false',
   });
 
 
 
 const handleInfo = (formData, toChange) => {
-  console.log(allData[toChange])
+
+  for (const [key, value] of Object.entries(formData)) {
+    if (key === 'avatar') {
+      continue;
+    }
+    else {
+      if (value === '') {
+        return; 
+      }
+    }
+  }
   setAllData(prevstate => ({...prevstate,
   [toChange] : formData,
   }))
 };  
 
 
-const addExperience = (child, toChange) => {
+const addElement = (child, toChange) => {
+
   let oldData = allData[toChange]
+  console.log(oldData)
+  console.log(oldData.indexOf(child))
+  child.id = oldData.length
+
   setAllData(prevState => ({...prevState,
     [toChange] : [...oldData ,child]  
 }));
@@ -49,59 +62,39 @@ const addExperience = (child, toChange) => {
   })
 }
 
-const removeExperience = (index, toChange) => {
+
+const removeElement = (index, toChange) => {
   let oldData = allData[toChange];
-  let newData = oldData.slice(0, index).concat(oldData.slice(index + 1,));
+  let newData = oldData.filter(element => {
+    return element.id !== parseInt(index)});
   setAllData(prevState => ({...prevState,
     [toChange] : newData
     }))
 }
 
-const printDocument = () => {
-  setPrintable(true)
-  const input = document.getElementById('final-section');
-  html2canvas(input, {
-    height: 2970,
-    width: 2100,
-    scale: 1,
-    onclone: (cloned) => {
-      let toPrint = cloned.querySelector("#final-section");
-      toPrint.style.height = '100vh';
-      toPrint.style.width = '100vw'
-      toPrint.style.position = 'absolute';
-      toPrint.style.top = 0;
-      toPrint.style.left = 0;    
-    }
-  })
-    .then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF({
-        unit: 'mm',
-        format: 'a4'
-      });
-      pdf.addImage(imgData, 'JPEG', 0, 0, 297, 210);
-      // pdf.output('dataurlnewwindow');
-      pdf.save("download.pdf");
-    })
-  ;
-}
+
+
+const componentRef = useRef();
+const handlePrint = useReactToPrint({
+  content: () => componentRef.current
+});
 
 return (
       <div className="App">
         <div className="header">
           <h1>Cv Creator</h1>
           <span className='download-container'>
-          <button className="download" onClick={printDocument}>Download</button>
+          <button onClick={handlePrint} className="download">Download CV</button>
           </span>
         </div>
         <div className="content">
         <div className="modifiable-section">
           <Title handleInfo={handleInfo}/>
-          <Experiencie handleInfo={handleInfo} addExperiencie={addExperience}/>
-          <Education handleInfo={handleInfo} addEducation={addExperience}/>
+          <Experiencie handleInfo={handleInfo} addExperiencie={addElement}/>
+          <Education handleInfo={handleInfo} addEducation={addElement}/>
           </div>
           <div id="final-section">
-            <FinalData data={allData} printable={printable} removeExperiencie={removeExperience}/>
+            <FinalData data={allData} removeElement={removeElement} ref={componentRef} />
           </div>
           </div>
       </div>
