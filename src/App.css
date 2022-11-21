@@ -6,12 +6,9 @@
   padding: 0;
 }
 
-
-
-
 .header {
-  height: 4vh;
-  width: 100vw;
+  width: 100%;
+  height: 5vh;
   background-color: rgb(48, 48, 48);
   display: flex;
   justify-content: space-between;
@@ -21,7 +18,10 @@
 
 .download-container {
   padding-right: 2%;
-  height: 50%;
+  height: 80%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 
@@ -32,9 +32,8 @@
   color: rgb(238, 238, 238);
   font-weight: bold;
   justify-self: flex-end;
-  height: 100%;
-  width: 150px;
-  font-size: 1.2em;
+  font-size: 1em;
+  width: 100%;
 }
 
 .download:hover {
@@ -45,38 +44,24 @@
 
 h1 {
   color: white;
-  padding-left: 2%;
   font-family: 'Archivo Black', sans-serif;
+  padding-left: 2%;
 }
 
 .content {
-  width: 100vw;
   display: flex;
   flex-wrap: wrap;
 }
 
 .modifiable-section {
-  width: 100vw;
-  height: 96vh;  
   background-color: grey;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: column;
 }
 
 .final-section {
-  width: 100vw;
-  height: 100vh;
   background-color: whitesmoke
-}
-
-@media print {
-  .final-section {
-      size: A4;
-      margin: 0;
-      width: 210mm;
-      height: 297mm;
-  }
 }
 
 
@@ -84,7 +69,7 @@ h1 {
 
  
   .header {
-    height: 10vh;
+    height: 7vh;
   }
 
   .content {
@@ -93,20 +78,33 @@ h1 {
   }
 
 
-
   .download {
     width: 120px;
+    height: 60%;
  
   }
 
 
   .modifiable-section {
     width: 45vw;
-    height: 90vh;
+    min-height: 297mm;  
   }
 
   .final-section {
     width: 55vw;
-    height: 90vh;
+    min-height: 297mm;
+  }
+}
+
+@media print {
+  #final-section {
+    size: A4;
+    width: 210mm;
+    height: 297mm;
+  }
+
+  .bar {
+    height: 297mm;
+    background-color: red;
   }
 }

@@ -1,11 +1,11 @@
 
 .dates {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: center;
     align-items: center;
-    font-size: 1.3em;
+
 }
 
 .dates > label {
@@ -19,8 +19,8 @@
 .input-container {
     width: 100%;
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     align-items: center;
     margin-top: 2%;
 }
@@ -34,14 +34,8 @@
     text-align: center;
     width: 60%;
     transition: all 0.2s ease-in-out;
-    font-size: 1.3em;
 }
 
-label {
-    width: 35%;
-    font-size: 1.3em;
-    font-family: 'Oswald', sans-serif;
-}
 
 .input-field:focus {
     transform: scaleX(1.1);
@@ -65,12 +59,11 @@ textarea:focus, input:focus{
 
     .input-field {
         font-size: 1em;
+    }
 
+    .input-container {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
     }
     
-    label {
-        font-size: 1em;
-    }
-
-
 }
