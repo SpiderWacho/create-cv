@@ -11,7 +11,6 @@
 }
 
 .section-title {
-    justify-self: flex-start;
     font-size: 1.3rem;
 }
 
@@ -147,11 +146,7 @@ textarea:focus, input:focus{
     .inputField {
         width: 60%;
     }
-
-    .button-container {
-        margin-top: 2%;
-        margin-bottom: 5%;
-    }
+    
 
 
 

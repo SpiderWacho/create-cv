@@ -30,6 +30,7 @@ render(){
             <div className='final-container'>
                 <div className="bar">
                     <div className="contact-container">
+                        
                     <input name="contact1" onChange={(e) => this.displayChange(e)} className="contact" value={this.state.contact1}></input>
                     <input name="contact2" onChange={(e) => this.displayChange(e)} className="contact" value={this.state.contact2}></input>
                     <input name="contact3" onChange={(e) => this.displayChange(e)} className="contact" value={this.state.contact3}></input>
@@ -56,7 +57,10 @@ render(){
                 <div className="experience-container"> 
                 <div className="separate-bar"></div>    
                     <h2 className="finaldata-title">Experiencie</h2>
+
                     {this.props.data.experienceChilds.map( (experience) => {
+                        console.log(`Experience id: ${experience.id}`)
+                        
 
                         return (
                             <div className="experience" key={experience.id}>

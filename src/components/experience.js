@@ -4,7 +4,7 @@ import './experience.css';
 const Experiencie = (props) => {
     
     const [data, setData] = useState({
-            id: '',
+            id: null,
             start: '',
             end: '',
             company: '',

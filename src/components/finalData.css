@@ -258,6 +258,10 @@
   .bar {
     height: 297mm;
   }
+
+  .delete {
+    display: none;
+  }
 }
 
 @media only screen and (min-width : 992px) {

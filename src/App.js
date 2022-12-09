@@ -49,13 +49,12 @@ const handleInfo = (formData, toChange) => {
 const addElement = (child, toChange) => {
 
   let oldData = allData[toChange]
-  console.log(oldData)
-  console.log(oldData.indexOf(child))
   child.id = oldData.length
-
+  console.log(child.id)
   setAllData(prevState => ({...prevState,
     [toChange] : [...oldData ,child]  
 }));
+
   let inputs = document.querySelectorAll('.input-field');
   inputs.forEach(input => {
     input.value = ''
