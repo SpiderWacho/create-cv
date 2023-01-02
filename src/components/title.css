@@ -1,153 +1,144 @@
 .container {
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border: 1px solid;
-    padding: 1%;
-    font-size: 1rem;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid;
+  padding: 1%;
+  font-size: 1rem;
 }
 
 .section-title {
-    font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 
 .profile-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .avatar {
-    margin-top: 2%;
-    height: 100px;
-    width: 100px;
-    opacity: 0.5;
-    border-radius: 50%;
-    border: 2px solid white;
-    object-fit: cover;
+  margin-top: 2%;
+  height: 100px;
+  width: 100px;
+  opacity: 0.5;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
 }
 
-.names, .contact{   
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-  
+.names,
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
 }
 
-.names > label, .contact > label {
-    width: 65%;
+.names > label,
+.contact > label {
+  width: 65%;
 }
 
-.names > .inputField, .contact > .inputField {
-    margin-top: 2%;
+.names > .inputField,
+.contact > .inputField {
+  margin-top: 2%;
 }
 
-.input-label{
-    font-family: oswald;
+.input-label {
+  font-family: oswald;
 }
-
 
 .inputField {
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid black;
-    color: white;
-    transition: all ease-in-out 0.1s;
-    text-align: center;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  color: white;
+  transition: all ease-in-out 0.1s;
+  text-align: center;
 }
 
 .inputField:focus {
-    transform: scaleX(1.2);
+  transform: scaleX(1.2);
 }
 
 ::placeholder {
-    color: white;
-    opacity: 0.5;
+  color: white;
+  opacity: 0.5;
 }
 
-textarea:focus, input:focus{
-    outline: none;
+textarea:focus,
+input:focus {
+  outline: none;
 }
 
 .button-container {
-    justify-self: flex-end;
-
+  justify-self: flex-end;
 }
 
 .submit-btn {
-    width: 100%;
-    min-height: 25px;
-    background-color: rgb(77, 77, 77);
-    color: white;
-    border: 1px solid black;
-    justify-self: flex-end;
-    align-self: center;
-    font-size: 1rem;
+  width: 100%;
+  min-height: 25px;
+  background-color: rgb(77, 77, 77);
+  color: white;
+  border: 1px solid black;
+  justify-self: flex-end;
+  align-self: center;
+  font-size: 1rem;
 }
 
 .submit-btn:hover {
-    background-color: rgb(835, 83, 83);
+  background-color: rgb(835, 83, 83);
 }
 
 .error {
-    color: rgb(145, 37, 37);
-    font-size: .9rem
+  color: rgb(145, 37, 37);
+  font-size: 0.9rem;
 }
 
+@media only screen and (min-width: 992px) {
+  .container {
+    font-size: 1em;
+    justify-content: center;
+    flex-wrap: nowrap;
+    height: 100%;
+  }
 
+  .section-title {
+    font-size: 1.3em;
+  }
 
+  .avatar {
+    height: 100px;
+    width: 100px;
+  }
 
-@media only screen and (min-width : 992px) {
-    .container {
-        font-size: 1em;
-        justify-content: center;
-        flex-wrap: nowrap;
-        min-height: 33.3%;
-        height: 100%;
-    }
+  .names,
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
 
-    .section-title {
-        font-size: 1.3em;
-    }
+  .input-container > label {
+    width: 30%;
+    text-align: center;
+  }
 
+  .names > .inputField,
+  .contact > .inputField {
+    margin-top: 0;
+  }
 
-    .avatar {
-        height: 100px;
-        width: 100px;
-    }
-
-    .names, .contact{   
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-    }
-
-
-    .input-container > label {
-        width: 30%;
-        text-align: center;
-    }
-
-    .names > .inputField, .contact > .inputField {
-        margin-top: 0;
-
-    }
-
-    .inputField {
-        width: 60%;
-    }
-    
-
-
-
+  .inputField {
+    width: 60%;
+  }
 }

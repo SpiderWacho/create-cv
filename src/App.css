@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Oswald&family=Quicksand:wght@500&family=Sono:wght@200;400&display=swap');
 
-
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +12,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .download-container {
@@ -23,7 +21,6 @@
   justify-content: flex-start;
   align-items: center;
 }
-
 
 .download {
   font-family: 'Oswald', sans-serif;
@@ -39,7 +36,6 @@
 .download:hover {
   cursor: pointer;
   background-color: rgb(184, 184, 184);
-
 }
 
 h1 {
@@ -61,13 +57,10 @@ h1 {
 }
 
 .final-section {
-  background-color: whitesmoke
+  background-color: whitesmoke;
 }
 
-
-@media only screen and (min-width : 992px) {
-
- 
+@media only screen and (min-width: 992px) {
   .header {
     height: 7vh;
   }
@@ -77,17 +70,14 @@ h1 {
     height: 90vh;
   }
 
-
   .download {
     width: 120px;
     height: 60%;
- 
   }
-
 
   .modifiable-section {
     width: 45vw;
-    min-height: 297mm;  
+    min-height: 297mm;
   }
 
   .final-section {

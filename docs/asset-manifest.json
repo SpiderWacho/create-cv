@@ -11,8 +11,5 @@
     "703.5e447590.chunk.js.map": "/SpiderWacho/create-cv/static/js/703.5e447590.chunk.js.map",
     "573.8e8fa9df.chunk.js.map": "/SpiderWacho/create-cv/static/js/573.8e8fa9df.chunk.js.map"
   },
-  "entrypoints": [
-    "static/css/main.d82c21eb.css",
-    "static/js/main.0a9f3163.js"
-  ]
+  "entrypoints": ["static/css/main.d82c21eb.css", "static/js/main.0a9f3163.js"]
 }
