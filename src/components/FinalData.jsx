@@ -1,4 +1,6 @@
+/* eslint-disable react/destructuring-assignment */
 import { React, Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './finalData.css';
 
@@ -10,7 +12,7 @@ class FinalData extends Component {
       contact1: 'site.webpage.com',
       contact2: 'Twitter',
       contact3: 'Instagram',
-      description: '"Write a short description about yourself"'
+      description: 'Escribi una descripcion pequeña sobre vos"'
     };
 
     this.displayChange = this.displayChange.bind(this);
@@ -31,18 +33,21 @@ class FinalData extends Component {
               name="contact1"
               onChange={(e) => this.displayChange(e)}
               className="contact"
+              // eslint-disable-next-line react/destructuring-assignment
               value={this.state.contact1}
             />
             <input
               name="contact2"
               onChange={(e) => this.displayChange(e)}
               className="contact"
+              // eslint-disable-next-line react/destructuring-assignment
               value={this.state.contact2}
             />
             <input
               name="contact3"
               onChange={(e) => this.displayChange(e)}
               className="contact"
+              // eslint-disable-next-line react/destructuring-assignment
               value={this.state.contact3}
             />
           </div>
@@ -77,7 +82,7 @@ class FinalData extends Component {
         </div>
         <div className="experience-container">
           <div className="separate-bar" />
-          <h2 className="finaldata-title">Experiencie</h2>
+          <h2 className="finaldata-title">Experiencia</h2>
 
           {this.props.experience.map((experience) => {
             function addHours(date, hours) {
@@ -90,6 +95,7 @@ class FinalData extends Component {
             const modifiedInput = addHours(inputDate, 15);
 
             if (modifiedInput.setHours(0, 0, 0, 0) === todaysDate.setHours(0, 0, 0, 0)) {
+              // eslint-disable-next-line no-param-reassign
               experience.end = 'Actualidad';
             }
             return (
@@ -100,7 +106,8 @@ class FinalData extends Component {
                 <p className="title">{experience.title}</p>
                 <p className="description">{experience.description}</p>
                 <button
-                  onClick={(e) => {
+                  type="button"
+                  onClick={() => {
                     this.props.removeElement(experience.id);
                   }}
                   className="delete">
@@ -112,7 +119,7 @@ class FinalData extends Component {
         </div>
         <div className="education-container">
           <div className="separate-bar" />
-          <h2 className="finaldata-title">Education</h2>
+          <h2 className="finaldata-title">Educacion</h2>
           {this.props.education.map((education) => {
             function addHours(date, hours) {
               date.setHours(date.getHours() + hours);
@@ -122,6 +129,7 @@ class FinalData extends Component {
             const inputDate = new Date(education.end);
             const modifiedInput = addHours(inputDate, 15);
             if (modifiedInput.setHours(0, 0, 0, 0) === todaysDate.setHours(0, 0, 0, 0)) {
+              // eslint-disable-next-line no-param-reassign
               education.end = 'Actualidad';
             }
             return (
@@ -132,7 +140,7 @@ class FinalData extends Component {
                 <p className="institution">{education.institution}</p>
                 <button
                   type="button"
-                  onClick={(e) => {
+                  onClick={() => {
                     this.props.removeEducation(education.id);
                   }}
                   className="delete">
@@ -148,3 +156,35 @@ class FinalData extends Component {
 }
 
 export default FinalData;
+
+FinalData.propTypes = {
+  title: PropTypes.shape({
+    avatar: PropTypes.string,
+    direction: PropTypes.string,
+    email: PropTypes.string,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    telphone: PropTypes.string
+  }).isRequired,
+  experience: PropTypes.arrayOf(
+    PropTypes.shape({
+      company: PropTypes.string,
+      description: PropTypes.string,
+      end: PropTypes.string,
+      id: PropTypes.number,
+      start: PropTypes.string,
+      title: PropTypes.string
+    })
+  ).isRequired,
+  education: PropTypes.arrayOf(
+    PropTypes.shape({
+      end: PropTypes.string,
+      id: PropTypes.number,
+      institution: PropTypes.string,
+      start: PropTypes.string,
+      title: PropTypes.string
+    })
+  ).isRequired,
+  removeElement: PropTypes.func.isRequired,
+  removeEducation: PropTypes.func.isRequired
+};

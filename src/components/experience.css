@@ -53,12 +53,26 @@ input:focus {
     font-size: 1em;
   }
 
+  .dates > label {
+    width: 50%;
+  }
+  
+  .dates > .input-field {
+    width: 25%;
+  }
+
   .input-field {
     font-size: 1em;
+    width: 100%;
   }
+
 
   .input-container {
     flex-wrap: wrap;
     justify-content: space-evenly;
+  }
+
+  .submit-btn {
+    margin-top: 15%;
   }
 }
