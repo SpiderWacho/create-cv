@@ -153,6 +153,9 @@ function App() {
           />
         </div>
       </div>
+      <div className="footer">
+        <p className="footer-text">Gaston Vecchio</p>
+      </div>
     </div>
   );
 }

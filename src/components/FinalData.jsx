@@ -12,7 +12,7 @@ class FinalData extends Component {
       contact1: 'site.webpage.com',
       contact2: 'Twitter',
       contact3: 'Instagram',
-      description: 'Escribi una descripcion pequeña sobre vos"'
+      description: '"Escribi una descripcion pequeña sobre vos"'
     };
 
     this.displayChange = this.displayChange.bind(this);
