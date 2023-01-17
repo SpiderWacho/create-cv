@@ -119,26 +119,22 @@ input:focus {
     width: 100px;
   }
 
-  .names,
-  .contact {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
+  .input-label {
     width: 100%;
   }
 
-  .input-container > label {
-    width: 30%;
-    text-align: center;
+  .input-container {
+    width: 100%;
   }
 
-  .names > .inputField,
-  .contact > .inputField {
-    margin-top: 0;
+  .input-label > .input-field {
+    width: 50%;
+    flex-wrap: wrap;
   }
 
-  .inputField {
-    width: 60%;
+  .input-label > .input-container > .input-field {
+    width: 50%;
+    flex-wrap: wrap;
   }
+
 }
