@@ -8,6 +8,7 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import FinalData from './components/FinalData';
 import avatar from './images/avatarProfile.png';
+import icon from './images/cvIcon.png';
 
 function App() {
   const [experiences, setExperiences] = useState([]);
@@ -24,6 +25,7 @@ function App() {
   const [titleError, setTitleError] = useState(false);
   const [experienceError, setExperienceError] = useState(false);
   const [educationError, setEducationError] = useState(false);
+  const [activeForm, setActiveForm] = useState(0);
 
   const checkForErrors = (input) => {
     if (input === '') {
@@ -47,7 +49,7 @@ function App() {
           setTitleError(true);
           return;
         }
-        setEducationError(false);
+        setTitleError(false);
       }
     }
     if (!titleError) {
@@ -122,26 +124,67 @@ function App() {
     content: () => componentRef.current
   });
 
-  return (
-    <div className="App">
-      <div className="header">
-        <h1>Cv Creator</h1>
-        <span className="download-container">
-          <button type="button" onClick={handlePrint} className="download">
-            Descargar CV
-          </button>
-        </span>
-      </div>
-      <div className="content">
-        <div className="modifiable-section">
-          <Title handleInfo={handleInfo} error={titleError} />
+  const renderSwitch = (state) => {
+    switch (state) {
+      case 0:
+        return <Title handleInfo={handleInfo} error={titleError} />;
+      case 1:
+        return (
           <Experience
             handleInfo={handleInfo}
             addExperience={addExperience}
             error={experienceError}
           />
+        );
+      case 2:
+        return (
           <Education handleInfo={handleInfo} addEducation={addEducation} error={educationError} />
+        );
+      default:
+        return <Title handleInfo={handleInfo} error={titleError} />;
+    }
+  };
+
+  const nextForm = () => {
+    if (activeForm !== 2) {
+      setActiveForm(activeForm + 1);
+    }
+  };
+
+  const prevForm = () => {
+    if (activeForm !== 0) {
+      setActiveForm(activeForm - 1);
+    }
+  };
+
+  return (
+    <div className="App">
+      <div className="header">
+        <img className="logo" src={icon} alt="Logo of a curriculum vitae" />
+        <h1>Cv Creator</h1>
+      </div>
+      <div className="content">
+        <div className="modifiable-section">
+          <p className="status">{activeForm + 1}/3</p>
+          {renderSwitch(activeForm)}
+          <div className="controls-container">
+            <a href="#" className="control-container" id="left-arrow" onClick={prevForm}>
+              &#8249;
+            </a>
+            <a href="#" className="control-container" id="right-arrow" onClick={nextForm}>
+              &#8250;
+            </a>
+          </div>
+
+          {activeForm === 2 && (
+            <span className="download-container">
+              <button type="button" onClick={handlePrint} className="download">
+                Descargar CV
+              </button>
+            </span>
+          )}
         </div>
+
         <div id="final-section">
           <FinalData
             title={title}

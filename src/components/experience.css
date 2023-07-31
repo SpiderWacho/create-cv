@@ -4,14 +4,15 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  padding: 10px 0 10px;
 }
 
 .dates > label {
-  width: 20%;
+  width: 45%;
 }
 
 .dates > .input-field {
-  width: 25%;
+  width: 55%;
 }
 
 .input-container {
@@ -24,18 +25,19 @@
 }
 
 .input-field {
-  background-color: transparent;
+  background-color: transparent !important; 
   border: none;
   border-bottom: 1px solid black;
-  color: white;
-  transition: all ease-in-out 0.2s;
+  color: black;
+  transition: all ease-in-out 0.1s;
   text-align: center;
-  width: 60%;
-  transition: all 0.2s ease-in-out;
+  width: 90%;
+  font-family: 'quicksand';
+  font-size: 1rem;
 }
 
-.input-field:focus {
-  transform: scaleX(1.1);
+.input-field:not(.input-dates):focus {
+  width: 95%;
 }
 
 ::placeholder {
@@ -49,30 +51,5 @@ input:focus {
 }
 
 @media only screen and (min-width: 992px) {
-  .dates {
-    font-size: 1em;
-  }
 
-  .dates > label {
-    width: 50%;
-  }
-  
-  .dates > .input-field {
-    width: 25%;
-  }
-
-  .input-field {
-    font-size: 1em;
-    width: 100%;
-  }
-
-
-  .input-container {
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
-
-  .submit-btn {
-    margin-top: 15%;
-  }
 }

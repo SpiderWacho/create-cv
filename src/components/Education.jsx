@@ -5,7 +5,7 @@ import './education.css';
 
 function Education({ addEducation, error }) {
   const [data, setData] = useState({
-    id: '',
+    id: 'null',
     start: '',
     end: '',
     title: '',
@@ -26,9 +26,9 @@ function Education({ addEducation, error }) {
       <h2 className="section-title">Educacion</h2>
       <div className="dates">
         <label className="input-label" htmlFor="start">
-          Fecha de inicio:
+          Inicio:
           <input
-            className="input-field"
+            className="input-field input-dates"
             onChange={(e) => handleChange(e)}
             type="date"
             name="start"
@@ -36,8 +36,13 @@ function Education({ addEducation, error }) {
           />
         </label>
         <label className="input-label" htmlFor="end">
-          Fecha de finalizacion:
-          <input className="input-field" onChange={(e) => handleChange(e)} type="date" name="end" />
+          Finalizacion:
+          <input
+            className="input-field input-dates"
+            onChange={(e) => handleChange(e)}
+            type="date"
+            name="end"
+          />
         </label>
       </div>
       <div className="input-container">
@@ -76,7 +81,7 @@ function Education({ addEducation, error }) {
             addEducation(data);
             setActiveComponent(true);
           }}>
-          Agregar datos
+          Add Education
         </button>
       </span>
       {error && activeComponent && <p className="error">Algunos campos son invalidos</p>}

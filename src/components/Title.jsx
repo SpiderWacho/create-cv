@@ -35,14 +35,18 @@ function Title({ handleInfo, error }) {
     <div className="container">
       <h2 className="section-title">Informacion Personal</h2>
       <div className="profile-section">
-        <input
-          onChange={(e) => handleFile(e)}
-          className="inputField"
-          type="file"
-          id="image-input"
-          accept="image/jpeg, image/png, image/jpg"
-          name="avatar"
-        />
+        <label className="image-input-label">
+          {' '}
+          Subir foto de perfil
+          <input
+            onChange={(e) => handleFile(e)}
+            className="inputField"
+            type="file"
+            id="image-input"
+            accept="image/jpeg, image/png, image/jpg"
+            name="avatar"
+          />
+        </label>
         <img src={data.avatar} className="avatar" alt="profile pic" />
       </div>
       <div className="names">

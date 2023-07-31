@@ -24,13 +24,13 @@ function Experience({ addExperience, error }) {
 
   return (
     <div className="container">
-      <h2 className="section-title">Experience</h2>
+      <h2 className="section-title">Experiencia</h2>
       <div className="dates">
         <label className="input-label" htmlFor="start">
-          Fecha de inicio:
+          Inicio:
           <input
             value={data.start}
-            className="input-field"
+            className="input-field input-dates"
             onChange={(e) => handleChange(e)}
             type="date"
             name="start"
@@ -38,10 +38,10 @@ function Experience({ addExperience, error }) {
         </label>
 
         <label className="input-label" htmlFor="end">
-          Fecha de finalizacion:
+          Finalizacion:
           <input
             value={data.end}
-            className="input-field"
+            className="input-field input-dates"
             onChange={(e) => handleChange(e)}
             type="date"
             name="end"
@@ -101,7 +101,7 @@ function Experience({ addExperience, error }) {
             addExperience(data);
             setActiveComponent(true);
           }}>
-          Agregar datos
+          Add Experience
         </button>
       </span>
       {error && activeComponent && <p className="error">Algunos campos son invalidos</p>}
