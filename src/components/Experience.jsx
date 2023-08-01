@@ -59,6 +59,7 @@ function Experience({ addExperience, error }) {
               type="textarea"
               placeholder="Nombre de la compania"
               name="company"
+              maxLength={50}
             />
           </span>
         </label>
@@ -74,6 +75,7 @@ function Experience({ addExperience, error }) {
               type="textarea"
               placeholder="Titulo de la posicion"
               name="title"
+              maxLength={50}
             />
           </span>
         </label>
@@ -89,6 +91,7 @@ function Experience({ addExperience, error }) {
               type="textarea"
               placeholder="Descripcion de la posicion"
               name="description"
+              maxLength={300}
             />
           </span>
         </label>

@@ -15,6 +15,7 @@
 
   display: grid;
   grid-template-columns: 70% 30%;
+  grid-template-rows: auto;
   grid-template-areas:
     'personal info'
     'experience info'
@@ -22,6 +23,7 @@
     border: 3px dotted rgba(0, 255, 42, 0.466);
     background-color: whitesmoke;
     width: 100%;
+    min-height: 307mm;
 }
 
 
@@ -42,7 +44,6 @@
   font-family: 'Quicksand', sans-serif;
   grid-area: info;
   background-color: var(--bar-color);
-  height: 307mm;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -162,7 +163,6 @@
 }
 
 .experience-container {
-  margin-top: 10px;
   grid-area: experience;
   display: flex;
   flex-direction: column;

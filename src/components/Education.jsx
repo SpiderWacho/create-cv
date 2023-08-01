@@ -55,6 +55,7 @@ function Education({ addEducation, error }) {
               type="textarea"
               placeholder="Titulo obtenido"
               name="title"
+              maxLength={50}
             />
           </span>
         </label>
@@ -69,6 +70,7 @@ function Education({ addEducation, error }) {
               type="textarea"
               placeholder="Institucion"
               name="institution"
+              maxLength={50}
             />
           </span>
         </label>
