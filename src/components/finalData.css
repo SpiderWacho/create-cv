@@ -5,8 +5,8 @@
 
 
 .finaldata-title {
-  padding-left: 5%;
-  padding-top: 2%;
+  padding-left: 5px;
+  padding-top: 5px;
   font-family: 'Quicksand', sans-serif;
   font-size: 1.4rem;
 }
@@ -15,7 +15,6 @@
 
   display: grid;
   grid-template-columns: 70% 30%;
-  grid-template-rows: 20% auto auto;
   grid-template-areas:
     'personal info'
     'experience info'
@@ -100,7 +99,6 @@
 
 .name-container {
   font-family: 'Quicksand', sans-serif;
-  height: 100%;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -164,8 +162,7 @@
 }
 
 .experience-container {
-  margin-top: 1%;
-  min-height: 33.3%;
+  margin-top: 10px;
   grid-area: experience;
   display: flex;
   flex-direction: column;
@@ -174,14 +171,13 @@
 .experience {
   width: 100%;
   font-family: 'Quicksand', sans-serif;
-  padding: 2%;
+  padding: 10px;
   display: grid;
-  grid-template-rows: repeat(3, 30%);
   grid-template-areas:
     'company'
     'title-dates'
     'description';
-  height: fit-content;
+
 }
 
 
@@ -242,7 +238,6 @@
 .education {
   width: 100%;
   display: grid;
-  grid-template-rows: repeat(2, auto);
   grid-template-areas:
     'institution'
     'title';
@@ -275,13 +270,7 @@
 }
 
 @media print {
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  #firstname, #lastname {
+   #firstname, #lastname {
     font-size: 2.5rem;
   }
  
@@ -291,7 +280,7 @@
   }
 
   .bar {
-    height: 296mm;
+    height: 296.5mm;
   }
 
   .delete {
@@ -322,7 +311,26 @@
   }
 
   .end-date::before {
-    content: "-  ";
+    content: "/ ";
+  }
+
+  .bar > .description {
+    font-size: 1.1rem;
+  }
+
+  .finaldata-title {
+    font-size: 1.7rem;
+  }
+
+  .final-container {
+    border: none;
+    height: 100%;
+    background-color:whitesmoke;
+  }
+
+  .final-container::before {
+    display: none;
+    
   }
   
 }
@@ -330,265 +338,45 @@
 @media only screen and (min-width: 1024px) {
 
   .finaldata-title {
-    padding-left: 5%;
-    padding-top: 2%;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1.4rem;
+    padding-left: 10px;
   }
   
-  .final-container {
-  
-    display: grid;
-    grid-template-columns: 70% 30%;
-    grid-template-rows: 20% auto auto;
-    grid-template-areas:
-      'personal info'
-      'experience info'
-      'education info';
-      border: 3px dotted rgba(0, 255, 42, 0.466);
-      background-color: whitesmoke;
-      width: 50vw;
-  }
-  
-  
-  
-  .final-container::before {
-    content: 'Preview';
-    position: absolute;
-    background-color: rgba(0, 255, 42, 0.527);
-    height: 25px;
-    width: 70px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .bar {
-    font-family: 'Quicksand', sans-serif;
-    grid-area: info;
-    background-color: var(--bar-color);
-    height: 307mm;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    overflow: hidden;
-  }
-  
-  .contact-container {
-    align-self: center;
-    text-align: center;
-    width: 100%;
-    padding: 5%;
-  }
-  
+
   .contact-container > .contact {
     font-size: 1.2em;
-    text-decoration: none;
-    border: none;
-    color: white;
-    background-color: var(--bar-color);
-    text-align: center;
   }
-  
-  .contact-container > .contact:hover {
-    cursor: text;
-  }
-  
+    
   .bar > .description {
-    color: white;
-    display: flex;
-    background-color: var(--bar-color);
-    border: none;
-    text-align: center;
-    align-self: flex-start;
     font-size: 1.2em;
-    overflow: hidden;
-    resize: none;
-    min-height: 50px;
-    height: 200px;
-    padding: 5%;
   }
   
   .profile-img {
     height: 125px;
     width: 125px;
-    object-fit: cover;
-    grid-area: info;
-    justify-self: center;
-    margin-top: 5%;
-    border-radius: 50%;
-    border: 2px solid black;
   }
   
-  .name-container {
-    font-family: 'Quicksand', sans-serif;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    grid-area: personal;
-    overflow: hidden;
-  }
-  
-  .name-div {
-    order: 0;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-  }
-  
-  .name-row {
-    width: 50%;
-  }
   
   #firstname,
   #lastname {
-    text-align: center;
     font-size: 2em;
-    width: 100%;
-    font-weight: bolder;
   }
   
   .contact-info {
-    order: 1;
-    width: 50%;
-    height: 100%;
-    font-family: 'Quicksand', sans-serif;
-    grid-area: personal;
     font-size: 1em;
-    padding: 5%;
-    padding-right: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
-  
-  .name-container > .separate-bar {
-    order: 3;
-  }
-  
-  .separate-bar {
-    width: 98%;
-    background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.938813025210084) 0%,
-      rgba(71, 71, 71, 0.8323704481792717) 50%,
-      rgba(175, 175, 175, 0.5970763305322129) 81%,
-      rgba(255, 255, 255, 1) 100%
-    );
-    height: 5px;
-    justify-self: end;
-  }
-  
-  .experience-container {
-    margin-top: 1%;
-    min-height: 33.3%;
-    grid-area: experience;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .experience {
-    width: 100%;
-    font-family: 'Quicksand', sans-serif;
-    padding: 2%;
-    display: grid;
-    grid-template-rows: repeat(3, 30%);
-    grid-template-areas:
-      'company'
-      'title-dates'
-      'description';
-    height: fit-content;
-  }
-  
-  
+
   
   .start-date {
-    position: relative;
-    right: 15%;
+    right: 18%;
   }
   
-  .start-date,
   .end-date {
-    padding-top: 1%;
-    grid-area: title-dates;
-    justify-self: flex-end;
-    font-weight: 500;
+    top: 0;
   }
   
-  .company {
-    grid-area: company;
-    font-size: 1.3em;
-    font-weight: 600;
+
+  .end-date::before {
+    content: '/ ';
   }
-  
-  .delete {
-    grid-area: company;
-    justify-self: flex-end;
-    width: 25px;
-    height: 25px;
-  }
-  
-  .title {
-    padding-top: 1%;
-    grid-area: title-dates;
-    font-weight: 500;
-  }
-  
-  .description {
-    padding-top: 1%;
-    grid-area: description;
-  }
-  
-  .education-container {
-    font-family: 'Quicksand', sans-serif;
-    margin-top: 1%;
-    height: 100%;
-    grid-area: education;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-  }
-  
-  .education {
-    width: 100%;
-    display: grid;
-    grid-template-rows: repeat(2, auto);
-    grid-template-areas:
-      'institution'
-      'title';
-    align-items: center;
-  }
-  
-  .education > .delete {
-    grid-area: institution;
-    justify-self: flex-end;
-    margin-right: 5%;
-  }
-  
-  .institution {
-    grid-area: institution;
-    justify-self: flex-start;
-    margin-left: 2%;
-    font-weight: 500;
-    font-size: 1.3em;
-  }
-  
-  .education > .start-date,
-  .education > .end-date {
-    grid-area: title;
-    margin-right: 5%;
-  }
-  
-  .education > .title {
-    grid-area: title;
-    margin-left: 2%;
-  }
+    
 }

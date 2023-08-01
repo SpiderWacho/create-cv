@@ -159,41 +159,46 @@ function App() {
 
   return (
     <div className="App">
-      <div className="header">
-        <img className="logo" src={icon} alt="Logo of a curriculum vitae" />
-        <h1>Cv Creator</h1>
+      <div className="header-container">
+        <div className="header">
+          <img className="logo" src={icon} alt="Logo of a curriculum vitae" />
+          <h1>Cv Creator</h1>
+        </div>
       </div>
-      <div className="content">
-        <div className="modifiable-section">
-          <p className="status">{activeForm + 1}/3</p>
-          {renderSwitch(activeForm)}
-          <div className="controls-container">
-            <a href="#" className="control-container" id="left-arrow" onClick={prevForm}>
-              &#8249;
-            </a>
-            <a href="#" className="control-container" id="right-arrow" onClick={nextForm}>
-              &#8250;
-            </a>
+
+      <div className="content-container">
+        <div className="content">
+          <div className="modifiable-section">
+            <p className="status">{activeForm + 1}/3</p>
+            {renderSwitch(activeForm)}
+            <div className="controls-container">
+              <a href="#" className="control-container" id="left-arrow" onClick={prevForm}>
+                &#8249;
+              </a>
+              <a href="#" className="control-container" id="right-arrow" onClick={nextForm}>
+                &#8250;
+              </a>
+            </div>
+
+            {activeForm === 2 && (
+              <span className="download-container">
+                <button type="button" onClick={handlePrint} className="download">
+                  Descargar CV
+                </button>
+              </span>
+            )}
           </div>
 
-          {activeForm === 2 && (
-            <span className="download-container">
-              <button type="button" onClick={handlePrint} className="download">
-                Descargar CV
-              </button>
-            </span>
-          )}
-        </div>
-
-        <div id="final-section">
-          <FinalData
-            title={title}
-            experience={experiences}
-            education={education}
-            removeElement={removeExperience}
-            removeEducation={removeEducation}
-            ref={componentRef}
-          />
+          <div id="final-section">
+            <FinalData
+              title={title}
+              experience={experiences}
+              education={education}
+              removeElement={removeExperience}
+              removeEducation={removeEducation}
+              ref={componentRef}
+            />
+          </div>
         </div>
       </div>
       <div className="footer">

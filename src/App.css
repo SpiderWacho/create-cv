@@ -3,6 +3,11 @@
 :root {
   --bg-color: #410070;
   --detail-color:  #8d43c2;
+  --max-width: 1840px;
+}
+
+html {
+  background-color: whitesmoke;
 }
 
 * {
@@ -11,8 +16,15 @@
   box-sizing: border-box;
 }
 
+.header-container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-color);
+}
+
 .header {
   width: 100%;
+  max-width: var(--max-width);
   height: 50px;
   background-color: var(--bg-color);
   display: flex;
@@ -57,13 +69,22 @@
 }
 
 h1 {
+  color: white;
   padding-left: 10px;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
+
 }
 
 .content {
   display: flex;
   flex-wrap: wrap;
   height: 100%;
+  max-width: var(--max-width);
 
 }
 
@@ -85,9 +106,8 @@ a {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #fafafa;
   width: 100vw;
-  height: 100vh;
+  max-width: 1170px;
 }
 
 .controls-container {
@@ -97,7 +117,7 @@ a {
   align-items: center;
   width: 80vw;
   position: absolute;
-  bottom: 83%;
+  bottom: 85%;
   z-index: 5;
 }
 
@@ -111,13 +131,6 @@ a {
 
 #right-arrow:hover, #left-arrow:hover {
   transform: scale(1.3);
-}
-
-#right-arrow {
-}
-
-#left-arrow {
-
 }
 
 
@@ -143,130 +156,40 @@ a {
 
 @media only screen and (min-width: 1024px) {
   .header {
-    width: 100%;
     height: 75px;
-    background-color: var(--bg-color);
-    display: flex;
-  
-    align-items: center;
-    font-family: 'quicksand', sans-serif;
   }
   
   .logo {
     height: 50px;
     width: 50px;
-    filter: invert(100%);
-    margin-left: 15px;
   }
   
-  .download-container {
-    position: relative;
-    height: 50px;
-    width: 100px;
-    top: 250px;
-    z-index: 2;
-  }
-  
-  .download {
-    font-family: 'Oswald', sans-serif;
-    background-color: var(--bg-color);
-    border: none;
-    color: rgb(238, 238, 238);
-    font-weight: bold;
-    justify-self: flex-end;
-    font-size: 1rem;
-    height: 100%;
-    width: 100%;
-    box-shadow: 0px 0px 2px .5px rgb(109, 109, 109);
-  }
-  
-  .download:hover {
-    cursor: pointer;
-    background-color: rgb(66, 43, 104);
-  }
-  
-  h1 {
-    color: white;
-    padding-left: 10px;
-  }
-  
+
   .content {
-    display: flex;
-    height: 100%;
     flex-wrap: nowrap;
   
   }
   
-  a {
-    text-decoration: none;
-    display: inline-block;
-    padding: 8px 16px;
-  }
-  
-  .status {
-    position: relative;
-    top: 10%;
-    font-family: 'quicksand', sans-serif;
-  }
-  
   .modifiable-section {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #fafafa;
     width: 50vw;
   }
   
   .controls-container {
-  
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 45vw;
-    position: absolute;
-    bottom: 60%;
-    z-index: 0;
+    width: 25vw;
+    /*729px is max width of the modifiable section*/
+    max-width: calc(729px - 150px);
   }
   
-  
-  #right-arrow, #left-arrow {
-    font-size: 3rem;
-    border-radius: 50%;
-    transition: all ease-in-out .2s;
-    color: black;
-  }
-  
-  #right-arrow:hover, #left-arrow:hover {
-    transform: scale(1.3);
-  }
-  
-  #right-arrow {
-  }
-  
-  #left-arrow {
-  
-  }
   
   #final-section {
     width: 50vw;
+    max-width: 1170px;
   }
   
-  
-  .footer {
-    height: 50px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bg-color)
-  }
-  
-  .footer-text {
-    font-family: oswald;
-    color: rgb(214, 214, 214);
-    font-size: .6rem;
+
+  .download-container {
+    position: relative;
+    top: -35%;   
   }
 }
 

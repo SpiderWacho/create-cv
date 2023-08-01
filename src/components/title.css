@@ -156,5 +156,13 @@ input:focus {
     width: 100%;
   }
 
+  .inputField {
+    width: 55%;
+  }
+
+  .inputField:not(#image-input):focus {
+    width: 65%;
+  }
+
 
 }

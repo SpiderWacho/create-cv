@@ -81,7 +81,7 @@ function Education({ addEducation, error }) {
             addEducation(data);
             setActiveComponent(true);
           }}>
-          Add Education
+          Agregar datos
         </button>
       </span>
       {error && activeComponent && <p className="error">Algunos campos son invalidos</p>}

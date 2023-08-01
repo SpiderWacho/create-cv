@@ -101,7 +101,7 @@ function Experience({ addExperience, error }) {
             addExperience(data);
             setActiveComponent(true);
           }}>
-          Add Experience
+          Agregar datos
         </button>
       </span>
       {error && activeComponent && <p className="error">Algunos campos son invalidos</p>}
