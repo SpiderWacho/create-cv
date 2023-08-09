@@ -35,7 +35,7 @@ function Title({ handleInfo, error }) {
     <div className="container">
       <h2 className="section-title">Informacion Personal</h2>
       <div className="profile-section">
-        <label className="image-input-label">
+        <label className="image-input-label" htmlFor="avatar">
           {' '}
           Subir foto de perfil
           <input

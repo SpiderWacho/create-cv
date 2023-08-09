@@ -46,7 +46,7 @@ html {
   position: relative;
   height: 50px;
   width: 100px;
-  top: -150px;
+  top: -20px;
   z-index: 2;
 }
 
@@ -77,14 +77,13 @@ h1 {
   display: flex;
   justify-content: center;
   background-color: whitesmoke;
-  height: 100%;
+
 
 }
 
 .content {
   display: flex;
   flex-wrap: wrap;
-  height: 100%;
   max-width: var(--max-width);
 
 }
@@ -125,9 +124,10 @@ a {
 
 #right-arrow, #left-arrow {
   font-size: 3rem;
-  border-radius: 50%;
   transition: all ease-in-out .2s;
   color: black;
+  border: none;
+  background-color: transparent;
 }
 
 #right-arrow:hover, #left-arrow:hover {
@@ -164,7 +164,7 @@ a {
     height: 50px;
     width: 50px;
   }
-  
+
 
   .content {
     flex-wrap: nowrap;
@@ -190,7 +190,7 @@ a {
 
   .download-container {
     position: relative;
-    top: -35%;   
+    top: -55%;   
   }
 }
 

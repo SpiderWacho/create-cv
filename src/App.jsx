@@ -172,12 +172,20 @@ function App() {
             <p className="status">{activeForm + 1}/3</p>
             {renderSwitch(activeForm)}
             <div className="controls-container">
-              <a href="#" className="control-container" id="left-arrow" onClick={prevForm}>
+              <button
+                type="button"
+                className="control-container"
+                id="left-arrow"
+                onClick={prevForm}>
                 &#8249;
-              </a>
-              <a href="#" className="control-container" id="right-arrow" onClick={nextForm}>
+              </button>
+              <button
+                type="button"
+                className="control-container"
+                id="right-arrow"
+                onClick={nextForm}>
                 &#8250;
-              </a>
+              </button>
             </div>
 
             {activeForm === 2 && (
