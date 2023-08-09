@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+**Live Preview**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+View live code [GitHub Pages](https://spiderwacho.github.io/create-cv/).
+<br>
+# Create CV App
+The idea behind this project is to apply all the things that i learned from The Odin Project Lesson about React, and make something useful.
 
-## Available Scripts
+Desktop View
+![First View](https://github.com/SpiderWacho/create-cv/assets/29034949/ee3b8157-f91c-441d-9a09-8b5c07f549b7)
 
-In the project directory, you can run:
 
-### `npm start`
+  
+  <p align="center">Mobile View</p>
+<p align="center">
+  <img src="https://github.com/SpiderWacho/create-cv/assets/29034949/95b9d37a-dfad-450f-bbb8-650021a6cb22">
+</p>
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Main Takeaways
+In this project i faced some issues that help me learn some things about react.
+My main problems where:
+*Find a library that allow me to download the finished cv in high quality
+*Styling the preview view for mobile and later changing it when printing to pdf
+*In this project, the css particulary represented a challenge, because i had to create the specific style that translate to the resume.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Find a library that allow me to download the finished cv in high quality
+I first used html2canvas and jspdf, but i was having several problems, the quality was not good and i couldn't get the correct size of impression, finally i found an opted to use react-to-print, a bug thats i cant resolve is that it prints two pages instead on only one, but it is usable.
 
-### `npm test`
+### Styling the preview view for mobile and later changing it when printing to pdf
+I learned to use the @media print query, i didn't know about it and now i know that if i need to work with files that need to be printed or viewed in pdf, i can use it
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
