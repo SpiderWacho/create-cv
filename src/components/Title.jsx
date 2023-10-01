@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './title.css';
 import avatar from '../images/avatarProfile.png';
 
-function Title({ handleInfo, error }) {
+function Title({ handleInfo, error, errorMsg }) {
   const [data, setData] = useState({
     avatar: `${avatar}`,
     firstName: '',
@@ -35,7 +35,7 @@ function Title({ handleInfo, error }) {
     <div className="container">
       <h2 className="section-title">Informacion Personal</h2>
       <div className="profile-section">
-        <label className="image-input-label" htmlFor="avatar">
+        <label className="image-input-label">
           {' '}
           Subir foto de perfil
           <input
@@ -92,7 +92,7 @@ function Title({ handleInfo, error }) {
                 onChange={(e) => {
                   handleChange(e);
                 }}
-                type="text"
+                type="number"
                 placeholder="115367852"
                 name="telphone"
                 className="inputField"
@@ -108,7 +108,7 @@ function Title({ handleInfo, error }) {
                 onChange={(e) => {
                   handleChange(e);
                 }}
-                type="text"
+                type="email"
                 placeholder="ejemplo@mail.com"
                 name="email"
                 className="inputField"
@@ -144,7 +144,7 @@ function Title({ handleInfo, error }) {
           Agregar datos
         </button>
       </span>
-      {error && activeComponent && <p className="error">Algunos campos son invalidos</p>}
+      {error && activeComponent && <p className="error">{errorMsg}</p>}
     </div>
   );
 }
@@ -153,5 +153,6 @@ export default Title;
 
 Title.propTypes = {
   handleInfo: PropTypes.func.isRequired,
-  error: PropTypes.bool.isRequired
+  error: PropTypes.bool.isRequired,
+  errorMsg: PropTypes.string.isRequired
 };

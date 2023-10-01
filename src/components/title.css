@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  top: 15%;
+  margin-top: 25px;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -9,8 +9,7 @@
   align-items: center;
   font-size: 1rem;
   z-index: 1;
-  height: 100%;
-  margin-bottom: 100px;
+  height: 600px;
 }
 
 .section-title {
@@ -70,6 +69,10 @@
   width: 85%;
   font-family: 'quicksand';
   font-size: 1rem;
+}
+
+.inputField::placeholder {
+  color: black;
 }
 
 .inputField:not(#image-input):focus {

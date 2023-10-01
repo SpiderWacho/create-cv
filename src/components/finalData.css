@@ -23,7 +23,7 @@
     border: 3px dotted rgba(0, 255, 42, 0.466);
     background-color: whitesmoke;
     width: 100%;
-    min-height: 307mm;
+  height: 100%;
 }
 
 
@@ -237,6 +237,7 @@
 
 .education {
   width: 100%;
+  padding: 10PX;
   display: grid;
   grid-template-areas:
     'institution'
@@ -325,7 +326,7 @@
   .final-container {
     border: none;
     height: 100%;
-    background-color:whitesmoke;
+    background-color:rgb(255, 255, 255);
   }
 
   .final-container::before {

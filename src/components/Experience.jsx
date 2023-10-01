@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './experience.css';
 
-function Experience({ addExperience, error }) {
+function Experience({ addExperience, error, errorMsg }) {
   const [data, setData] = useState({
     id: null,
     start: '',
@@ -50,7 +50,7 @@ function Experience({ addExperience, error }) {
       </div>
       <div className="input-container">
         <label className="input-label" htmlFor="company">
-          Nombre de la compania:
+          Nombre de la compañía:
           <span className="input-container">
             <input
               value={data.company}
@@ -107,7 +107,7 @@ function Experience({ addExperience, error }) {
           Agregar datos
         </button>
       </span>
-      {error && activeComponent && <p className="error">Algunos campos son invalidos</p>}
+      {error && activeComponent && <p className="error">{errorMsg}</p>}
     </div>
   );
 }
@@ -116,5 +116,6 @@ export default Experience;
 
 Experience.propTypes = {
   addExperience: PropTypes.func.isRequired,
-  error: PropTypes.bool.isRequired
+  error: PropTypes.bool.isRequired,
+  errorMsg: PropTypes.string.isRequired
 };

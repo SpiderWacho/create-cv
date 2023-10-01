@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 import './App.css';
 import { useReactToPrint } from 'react-to-print';
@@ -25,6 +25,7 @@ function App() {
   const [titleError, setTitleError] = useState(false);
   const [experienceError, setExperienceError] = useState(false);
   const [educationError, setEducationError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
   const [activeForm, setActiveForm] = useState(0);
 
   const checkForErrors = (input) => {
@@ -38,6 +39,7 @@ function App() {
     setTitleError(false);
     setExperienceError(false);
     setEducationError(false);
+    setErrorMsg('');
   };
 
   const handleInfo = (formData) => {
@@ -46,7 +48,15 @@ function App() {
     for (const [key, value] of Object.entries(formData)) {
       if (key !== 'avatar') {
         if (checkForErrors(value)) {
+          console.log(`${key}`);
+          let invalidField = '';
+          if (key === 'firstName') invalidField = 'Nombre';
+          else if (key === 'lastName') invalidField = 'Apellido';
+          else if (key === 'telphone') invalidField = 'Numero de telefono';
+          else if (key === 'email') invalidField = 'Email';
+          else invalidField = 'Direccion';
           setTitleError(true);
+          setErrorMsg(`${invalidField} es invalido.`);
           return;
         }
         setTitleError(false);
@@ -63,22 +73,32 @@ function App() {
     // eslint-disable-next-line no-restricted-syntax
     for (const [key, value] of Object.entries(child)) {
       if (checkForErrors(value)) {
+        let invalidField = '';
+        if (key === 'start') invalidField = 'Inicio';
+        else if (key === 'end') invalidField = 'Finalizacion';
+        else if (key === 'name') invalidField = 'Nombre de la compañía';
+        else if (key === 'title') invalidField = 'Titulo de la posicion';
+        else invalidField = 'Descripcion';
         setExperienceError(true);
+        setErrorMsg(`${invalidField} no es valido.`);
         return;
       }
       setExperienceError(false);
     }
-    if (!experienceError) {
-      const childToAppend = { ...child };
-      childToAppend.id = id;
-
-      setExperiences((prevState) => [...prevState, childToAppend]);
-      const inputs = document.querySelectorAll('.input-field');
-      inputs.forEach((input) => {
-        // eslint-disable-next-line no-param-reassign
-        input.value = '';
-      });
+    if (experiences.length > 9) {
+      setExperienceError(true);
+      setErrorMsg(`No se pueden agregar mas experiencias`);
+      return;
     }
+
+    const childToAppend = { ...child };
+    childToAppend.id = id;
+    setExperiences((prevState) => [...prevState, childToAppend]);
+    const inputs = document.querySelectorAll('.input-field');
+    inputs.forEach((input) => {
+      // eslint-disable-next-line no-param-reassign
+      input.value = '';
+    });
   };
 
   const addEducation = (child) => {
@@ -88,21 +108,31 @@ function App() {
     for (const [key, value] of Object.entries(child)) {
       if (checkForErrors(value)) {
         setEducationError(true);
+        let invalidField = '';
+        if (key === 'start') invalidField = 'Inicio';
+        else if (key === 'end') invalidField = 'Finalizacion';
+        else if (key === 'title') invalidField = 'Titulo obtenido';
+        else invalidField = 'Institucion';
+        setErrorMsg(`${invalidField} no es valido`);
         return;
       }
       setEducationError(false);
     }
-    if (!educationError) {
-      const childToAppend = { ...child };
-      childToAppend.id = id;
-
-      setEducation((prevState) => [...prevState, childToAppend]);
-      const inputs = document.querySelectorAll('.input-field');
-      inputs.forEach((input) => {
-        // eslint-disable-next-line no-param-reassign
-        input.value = '';
-      });
+    if (education.length > 9) {
+      setEducationError(true);
+      setErrorMsg(`No se pueden agregar mas titulos`);
+      return;
     }
+
+    const childToAppend = { ...child };
+    childToAppend.id = id;
+
+    setEducation((prevState) => [...prevState, childToAppend]);
+    const inputs = document.querySelectorAll('.input-field');
+    inputs.forEach((input) => {
+      // eslint-disable-next-line no-param-reassign
+      input.value = '';
+    });
   };
 
   const removeExperience = (index) => {
@@ -127,18 +157,24 @@ function App() {
   const renderSwitch = (state) => {
     switch (state) {
       case 0:
-        return <Title handleInfo={handleInfo} error={titleError} />;
+        return <Title handleInfo={handleInfo} error={titleError} errorMsg={errorMsg} />;
       case 1:
         return (
           <Experience
             handleInfo={handleInfo}
             addExperience={addExperience}
             error={experienceError}
+            errorMsg={errorMsg}
           />
         );
       case 2:
         return (
-          <Education handleInfo={handleInfo} addEducation={addEducation} error={educationError} />
+          <Education
+            handleInfo={handleInfo}
+            addEducation={addEducation}
+            error={educationError}
+            errorMsg={errorMsg}
+          />
         );
       default:
         return <Title handleInfo={handleInfo} error={titleError} />;
@@ -169,8 +205,6 @@ function App() {
       <div className="content-container">
         <div className="content">
           <div className="modifiable-section">
-            <p className="status">{activeForm + 1}/3</p>
-            {renderSwitch(activeForm)}
             <div className="controls-container">
               <button
                 type="button"
@@ -179,6 +213,7 @@ function App() {
                 onClick={prevForm}>
                 &#8249;
               </button>
+              <p className="status">{activeForm + 1}/3</p>
               <button
                 type="button"
                 className="control-container"
@@ -187,6 +222,7 @@ function App() {
                 &#8250;
               </button>
             </div>
+            {renderSwitch(activeForm)}
 
             {activeForm === 2 && (
               <span className="download-container">

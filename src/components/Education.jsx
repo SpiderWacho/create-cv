@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './education.css';
 
-function Education({ addEducation, error }) {
+function Education({ addEducation, error, errorMsg }) {
   const [data, setData] = useState({
     id: 'null',
     start: '',
@@ -86,7 +86,7 @@ function Education({ addEducation, error }) {
           Agregar datos
         </button>
       </span>
-      {error && activeComponent && <p className="error">Algunos campos son invalidos</p>}
+      {error && activeComponent && <p className="error">{errorMsg}</p>}
     </div>
   );
 }
@@ -95,5 +95,6 @@ export default Education;
 
 Education.propTypes = {
   addEducation: PropTypes.func.isRequired,
-  error: PropTypes.bool.isRequired
+  error: PropTypes.bool.isRequired,
+  errorMsg: PropTypes.string.isRequired
 };

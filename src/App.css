@@ -44,9 +44,10 @@ html {
 
 .download-container {
   position: relative;
+  margin-top: -50px;
+  bottom: 200px;
   height: 50px;
   width: 100px;
-  top: -20px;
   z-index: 2;
 }
 
@@ -77,6 +78,7 @@ h1 {
   display: flex;
   justify-content: center;
   background-color: whitesmoke;
+  min-height: calc(100vh - 75px - 50px);
 
 
 }
@@ -85,6 +87,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   max-width: var(--max-width);
+
 
 }
 
@@ -104,10 +107,12 @@ a {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100vw;
   max-width: 1170px;
+  height: calc(100vh - 50px);
+
 }
 
 .controls-container {
@@ -116,8 +121,6 @@ a {
   justify-content: space-between;
   align-items: center;
   width: 80vw;
-  position: absolute;
-  bottom: 85%;
   z-index: 5;
 }
 
@@ -137,6 +140,8 @@ a {
 
 #final-section {
   width: 100vw;
+  min-height: 100vh;
+
 }
 
 
@@ -190,7 +195,6 @@ a {
 
   .download-container {
     position: relative;
-    top: -55%;   
   }
 }
 
