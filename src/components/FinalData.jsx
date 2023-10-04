@@ -105,14 +105,17 @@ class FinalData extends Component {
                 <p className="company">{experience.company}</p>
                 <p className="title">{experience.title}</p>
                 <p className="description">{experience.description}</p>
-                <button
-                  type="button"
-                  onClick={() => {
-                    this.props.removeElement(experience.id);
-                  }}
-                  className="delete">
-                  X
-                </button>
+                <span className="delete-container">
+                  Delete
+                  <button
+                    type="button"
+                    onClick={() => {
+                      this.props.removeElement(experience.id);
+                    }}
+                    className="delete-btn">
+                    X
+                  </button>
+                </span>
               </div>
             );
           })}
@@ -138,14 +141,17 @@ class FinalData extends Component {
                 <p className="end-date">{education.end}</p>
                 <p className="title">{education.title}</p>
                 <p className="institution">{education.institution}</p>
-                <button
-                  type="button"
-                  onClick={() => {
-                    this.props.removeEducation(education.id);
-                  }}
-                  className="delete">
-                  X
-                </button>
+                <span className="delete-container">
+                  Delete
+                  <button
+                    type="button"
+                    onClick={() => {
+                      this.props.removeEducation(education.id);
+                    }}
+                    className="delete-btn">
+                    x
+                  </button>
+                </span>
               </div>
             );
           })}

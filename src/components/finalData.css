@@ -207,12 +207,28 @@
   font-weight: 600;
 }
 
-.delete {
+.delete-container {
   grid-area: company;
   justify-self: flex-end;
-  width: 25px;
-  height: 25px;
+  font-size: .8rem;
+  color: #5f5f5f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
 }
+
+.delete-btn {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+
+}
+
+
 
 .title {
   padding-top: 1%;
@@ -237,15 +253,15 @@
 
 .education {
   width: 100%;
-  padding: 10PX;
   display: grid;
   grid-template-areas:
     'institution'
     'title';
   align-items: center;
+  padding: 10px 0px;
 }
 
-.education > .delete {
+.education > .delete-container {
   grid-area: institution;
   justify-self: flex-end;
   margin-right: 5%;
@@ -284,7 +300,7 @@
     height: 296.5mm;
   }
 
-  .delete {
+  .delete-container {
     display: none;
   }
 
